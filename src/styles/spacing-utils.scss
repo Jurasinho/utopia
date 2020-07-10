@@ -1,0 +1,13 @@
+$spacings: 1px 2px 4px 8px 16px 32px 40px 48px 64px 128px 256px;
+$property: ("m": "margin", "p": "padding");
+$sides: ("t": "top", "r": "right", "b": "bottom", "l": "left");
+
+@each $prop, $propName in $property {
+  @each $side, $sideName in $sides {
+    @for $i from 1 through 11 {
+      .#{$prop}#{$side}-#{$i}{
+        #{$propName}-#{$sideName}: nth($spacings, $i);
+      }
+    }
+  }
+}
